@@ -52,12 +52,29 @@
   <script src="js/game/canvas.js"></script>
   <script src="js/game/key.js"></script>
   <script src="js/game/pool.js"></script>
-
-
   <script src="js/delta.js"></script>
-  <script>
-    Delta();
-  </script>
+  <script src="https://grandgames.net/sdk/games.js"></script>
 
+  <script>
+    window.sdk = {
+        ready: function() {},
+        setScore: function(s) {},
+        ready: function(s) {},
+        start: function(s) {},
+        loose: function(s) {}
+    }     
+    try  {    
+      GrandGames.init().then(function(sdk) {
+      window.sdk = sdk      
+    }).catch(function(err) {     
+      console.error("Can't initialize GrandGames SDK", err);
+    }).finally(function() {
+      Delta();  
+    });   
+  } catch(e)  {
+    console.error("GrandGames SDK not available");
+    Delta();  
+  }
+  </script>
 </body>
 </html>
