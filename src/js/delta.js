@@ -870,7 +870,7 @@ Delta = function () {
           pending: 60 + n * wave.stagger,
           move: 0,
           frame: 0,
-          score: 100,
+          score: 10,
         }
         Game.animate(alien)
         this.aliens.push(alien)
